@@ -6,6 +6,10 @@ ifeq ($(CORE), x280)
 CCOMMON_OPT += -march=rv64imafdcv_zba_zbb_zfh_zvl512b -mabi=lp64d 
 FCOMMON_OPT += -march=rv64imafdcv_zba_zbb_zfh -mabi=lp64d -static
 endif
+ifeq ($(CORE), X60)
+CCOMMON_OPT += -march=rv64imafdcv_zicbom_zicbop_zicboz_zicond_zfh_zba_zbb_zbc_zbs_zvfh_zvl256b -mtune=sifive-7-series -mabi=lp64d
+FCOMMON_OPT += -march=rv64imafdcv -mabi=lp64d
+endif
 ifeq ($(CORE), RISCV64_ZVL256B)
 CCOMMON_OPT += -march=rv64imafdcv_zvl256b -mabi=lp64d
 FCOMMON_OPT += -march=rv64imafdcv -mabi=lp64d
